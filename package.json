@@ -13,6 +13,8 @@
     "dev": "tsc -w"
   },
   "devDependencies": {
+    "@types/jest": "^22.1.4",
+    "@types/node": "^9.4.6",
     "jest": "^22.4.2"
   }
 }

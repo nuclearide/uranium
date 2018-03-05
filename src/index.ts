@@ -1,10 +1,13 @@
+import Plugins from './plugin/plugins';
+
 export class Uranium {
-    _initialized = false;
+    private _plugins: Plugins;
+
     constructor() {
-        this._initialized = true;
+        this._plugins = new Plugins();
     }
 
-    getCompletions() {
-        return [];
+    get Plugins(): Plugins {
+        return this._plugins;
     }
 }

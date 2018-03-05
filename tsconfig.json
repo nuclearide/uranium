@@ -4,9 +4,13 @@
         "rootDir": "src",
         "outDir": "dist",
         "target": "es6",
-        "module": "commonjs"
+        "module": "commonjs",
+        "sourceMap": true
     },
     "typeAcquisition": {
         "enable": true
-    }
+    },
+    "exclude": [
+        "__tests__/**"
+    ]
 }
