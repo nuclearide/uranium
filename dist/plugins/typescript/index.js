@@ -6,3 +6,4 @@ class Typescript {
     }
 }
 exports.default = Typescript;
+//# sourceMappingURL=index.js.map

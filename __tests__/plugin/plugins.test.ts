@@ -1,6 +1,6 @@
 import Plugins from '../../src/plugin/plugins';
 
-var plugins;
+var plugins: Plugins;
 
 describe('Plugin', () => {
     it('constructor', () => {

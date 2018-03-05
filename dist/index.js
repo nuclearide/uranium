@@ -10,3 +10,4 @@ class Uranium {
     }
 }
 exports.Uranium = Uranium;
+//# sourceMappingURL=index.js.map
