@@ -1,10 +1,15 @@
 import {Plugin} from './plugin';
 import { join } from 'path';
+import { FileSystemProvider } from '../filesystem/filesystem';
 
 export default class Plugins {
     private _plugins: Plugin[];
+    private _fileSystem;
 
-    constructor() {
+    constructor(
+        {fileSystem}: {fileSystem: FileSystemProvider}
+    ) {
+        this._fileSystem = fileSystem;
         this._plugins = [];
     }
 
@@ -25,6 +30,6 @@ export default class Plugins {
     }
 
     load(name: string) {
-        this._plugins.push(new (require(join('../plugins/', name)).default));
+        this._plugins.push(new (require(join('../plugins/', name)).default)(this._fileSystem));
     }
 }

@@ -1,7 +1,11 @@
+import { Uranium } from "../Uranium";
+
 export type PluginType = 'completion'|'linter';
 
 export interface Plugin {
     getServices(): PluginType[];
-    getCompletions?();
+    getFileTypes(): string[];
+    openFile(filePath: string);
+    getCompletions?(filePath: string, position: number | Uranium.Position): Promise<any[]>;
     getLinting?();
 }

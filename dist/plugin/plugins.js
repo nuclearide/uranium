@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = require("path");
 class Plugins {
-    constructor() {
+    constructor({ fileSystem }) {
+        this._fileSystem = fileSystem;
         this._plugins = [];
     }
     getPlugins() {
@@ -19,7 +20,7 @@ class Plugins {
         });
     }
     load(name) {
-        this._plugins.push(new (require(path_1.join('../plugins/', name)).default));
+        this._plugins.push(new (require(path_1.join('../plugins/', name)).default)(this._fileSystem));
     }
 }
 exports.default = Plugins;

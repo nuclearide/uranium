@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const plugins_1 = require("./plugin/plugins");
 class Uranium {
-    constructor() {
-        this._plugins = new plugins_1.default();
+    constructor(options) {
+        this._plugins = new plugins_1.default(options);
     }
     get Plugins() {
         return this._plugins;

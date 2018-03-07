@@ -1,10 +1,11 @@
 import Plugins from '../../src/plugin/plugins';
+import FSProvider from '../../src/filesystem/fs';
 
 var plugins: Plugins;
 
 describe('Plugin', () => {
     it('constructor', () => {
-        plugins = new Plugins();
+        plugins = new Plugins({fileSystem: new FSProvider});
     })
     it('load', () => {
         plugins.load('typescript');
@@ -18,5 +19,8 @@ describe('Plugin', () => {
     })
     it('getLinters', () => {
         expect(~plugins.getLinters()[0].getServices().indexOf('linter')).toBeTruthy();
+    })
+    it('openFile', () => {
+        return plugins.getPlugins()[0].openFile(__filename)
     })
 });
