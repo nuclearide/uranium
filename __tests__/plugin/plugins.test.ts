@@ -15,10 +15,10 @@ describe('Plugin', () => {
         expect(plugins.getPlugins() instanceof Array).toBe(true);
     });
     it('getCompleters', () => {
-        expect(~plugins.getCompleters()[0].getServices().indexOf('completion')).toBeTruthy();
+        expect(~plugins.getCompletersForFileType('.js')[0].getServices().indexOf('completion')).toBeTruthy();
     })
     it('getLinters', () => {
-        expect(~plugins.getLinters()[0].getServices().indexOf('linter')).toBeTruthy();
+        expect(~plugins.getLintersForFileType('.js')[0].getServices().indexOf('linter')).toBeTruthy();
     })
     it('openFile', () => {
         return plugins.getPlugins()[0].openFile(__filename)

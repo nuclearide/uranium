@@ -17,15 +17,15 @@ export default class Plugins {
         return this._plugins;
     }
 
-    getLinters() {
+    getLintersForFileType(extension: string) {
         return this._plugins.filter(plugin => {
-            return ~plugin.getServices().indexOf('linter');
+            return ~plugin.getServices().indexOf('linter') && ~plugin.getFileTypes().indexOf(extension);
         });
     }
 
-    getCompleters() {
+    getCompletersForFileType(extension: string) {
         return this._plugins.filter(plugin => {
-            return ~plugin.getServices().indexOf('completion');
+            return ~plugin.getServices().indexOf('completion') && ~plugin.getFileTypes().indexOf(extension);
         });
     }
 

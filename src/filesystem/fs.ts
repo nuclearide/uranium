@@ -3,6 +3,7 @@ import {readFile, exists} from 'fs';
 import { writeFile } from 'fs';
 
 export default class FSProvider implements FileSystemProvider {
+    constructor() {}
     readFile(filePath: string): Promise<string> {
         return new Promise((resolve, reject) => {
             readFile(filePath, (err, ret) => {

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const fs_2 = require("fs");
 class FSProvider {
+    constructor() { }
     readFile(filePath) {
         return new Promise((resolve, reject) => {
             fs_1.readFile(filePath, (err, ret) => {

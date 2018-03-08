@@ -48,10 +48,17 @@ export default class Typescript implements Plugin {
         });
     }
 
-    getCompletions(filePath: string, position: Uranium.Position): Promise<any[]> {
+    getCompletionsAt(filePath: string, position: Uranium.Position): Promise<any[]> {
         return new Promise((resolve, reject) => {
             var completions = languageService.getCompletionsAtPosition(filePath, position.offset, {includeExternalModuleExports: true, includeInsertTextCompletions: true});
             resolve(completions.entries);
+        });
+    }
+
+    getDefinitionAt(filePath: string, position: Uranium.Position): Promise<any[]> {
+        return new Promise((resolve, reject) => {
+            var definitions = languageService.getDefinitionAtPosition(filePath, position.offset);
+            resolve(definitions);
         });
     }
 }

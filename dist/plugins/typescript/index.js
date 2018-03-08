@@ -44,10 +44,16 @@ class Typescript {
             typescriptLanguageServiceHost.addFile(filePath, val);
         });
     }
-    getCompletions(filePath, position) {
+    getCompletionsAt(filePath, position) {
         return new Promise((resolve, reject) => {
             var completions = languageService.getCompletionsAtPosition(filePath, position.offset, { includeExternalModuleExports: true, includeInsertTextCompletions: true });
             resolve(completions.entries);
+        });
+    }
+    getDefinitionAt(filePath, position) {
+        return new Promise((resolve, reject) => {
+            var definitions = languageService.getDefinitionAtPosition(filePath, position.offset);
+            resolve(definitions);
         });
     }
 }
