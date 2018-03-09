@@ -19,7 +19,7 @@ declare class Plugins {
 }
 
 export type FileSystemProvider = FileSystemProvider;
-
+export type Plugin = Plugin;
 declare class Uranium {
     constructor(options: any);
     Plugins: Plugins;
